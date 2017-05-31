@@ -1,4 +1,4 @@
-// The even/odd reporter
+// https://gist.github.com/epoch/0df5e2eeaadb8871b9a73887162c2ab4#file-js_week1_loops-md
 for (var num = 0; num <= 20; num++) {
 	if (num % 2 === 0) {
 		console.log(num + ' is even');
@@ -23,6 +23,7 @@ var number = ["1st", "2nd", "3rd"];
 }
 
 // js- else-if 
+// https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md
 var d = new Date ();
 	var newyear = d.getFullYear();
 var year = 2015;
