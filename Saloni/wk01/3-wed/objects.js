@@ -32,12 +32,17 @@ var favouriteRecipe = {
 console.log("\u2022 " + favouriteRecipe.Title);
 console.log("\u2022 " + "Serves: " + favouriteRecipe.Servings);
 console.log("\u2022 " + "Ingredients:");
+// console.log("\u2022 " + favouriteRecipe.Ingredients.join("\n"));
+// .join (\n) will print array elements in string form and in different line.
+// or
+// console.log("\u2022 " + favouriteRecipe.Ingredients.join("\n\u2022"));
+
 for (var i = 0; i < favouriteRecipe.Ingredients.length; i++) {
 console.log("\u2022 " + favouriteRecipe.Ingredients[i]);
 }
 
 // The Reading List
-var readingList = [
+var readingList = 
  {
  	title: "parasitology",
  	author: "abc",
@@ -52,6 +57,7 @@ var readingList = [
  	title: "virology",
  	author: "ghi",
  	alreadyRead: true
+ 	// never put boolean in quotations because it will turn it in string
 }
 ];
  
@@ -59,6 +65,7 @@ var list = function () {
 	for (i = 0; i < readingList.length; i++) {
 		console.log(readingList[i].title + " by " + readingList[i].author);
 		if (readingList[i].alreadyRead === true) {
+			// i can use - if (readingList[i].alreadyRead) because it will run when it is true only
 			console.log('You already read "' + readingList[i].title + '" by ' + readingList[i].author);  
 		} else {
 			console.log('You still need to read "' + readingList[i].title + '" by ' + readingList[i].author);
@@ -77,3 +84,9 @@ var favoriteMovie = {
  	console.log(favoriteMovie.title + " lasts for " + favoriteMovie.duration + " minutes. Stars: " + favoriteMovie.stars);
  };
  movie();
+//  we can write 
+// var movie = function () {
+// 	return favoriteMovie.title + " lasts for " + favoriteMovie.duration + " minutes. Stars: " + favoriteMovie.stars; 
+// }
+// console.log(function());
+//  it allows us option whether to print the answer of function or not
