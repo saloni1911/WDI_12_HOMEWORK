@@ -1,0 +1,75 @@
+/*.div_backgrndimg*/ header {
+	background: url(../images/background.jpg) repeat-x;
+	height: 200px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100%;
+
+}
+.change {
+	margin-top: 20px;
+}
+
+div {
+	display: inline-block;
+	/*float: left;*/
+	background-color: white;
+}
+
+a {
+	color: #cc6633;
+	text-decoration: none;
+}
+
+.clr {
+		color: red;
+}
+
+.boxone {
+	width: 600px;
+	float: left;
+	padding: 20px 20px 0 180px;
+	border-collapse: separate;
+    border-spacing: 10px 50px;
+	/*margin-left: 20px;*/
+}
+
+.boxtwo {
+	width: 200px;
+	float: right;
+	/*margin-top: 20px;
+	margin-right: 40px;*/
+	padding: 45px 20px 0 40px;
+ 
+
+}
+
+.headingtwo {
+	margin-top: 60px;
+}
+
+.list {
+	margin-top: 20px;
+}
+
+ul{
+	list-style-type: none;
+	padding-left: 10px;
+	margin: 0;
+}
+nav img {
+	padding: 10px;
+}
+
+hr {
+	
+}
+footer {
+	clear: both;
+	text-align: center;
+	padding-top: 20px;
+
+}

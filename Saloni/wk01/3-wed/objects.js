@@ -42,7 +42,7 @@ console.log("\u2022 " + favouriteRecipe.Ingredients[i]);
 }
 
 // The Reading List
-var readingList = 
+var readingList = [
  {
  	title: "parasitology",
  	author: "abc",
