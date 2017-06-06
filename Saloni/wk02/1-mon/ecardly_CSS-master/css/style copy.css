@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	border: 1px solid pink;
+	width: 1500px;
+	/*because our picture is taking more space, so increase the container size*/
+	overflow: hidden;
+	margin: 0 auto;
+	/*to fix the main container boundary comes back after floating thing*/
+}
+
+
+/*.container * {
+	display: inline-block;
+}*/
+
+
+main {
+	border: 1px solid lime;
+	/*display: inline-block;*/
+	/*vertical-align: top;*/
+	width: 50%;
+	float: left;
+	/*it is relative to parent - .container*/
+}
+
+aside {
+	border: 1px solid blue;
+	/*display: inline-block;*/
+	/*vertical-align: top;*/
+	/*width: 48%;*/
+	float: right;
+	width: 50%;
+}
+
+img {
+	float: left;
+}
+
+/*float will work everywhere. if we put float: left for picture one*/

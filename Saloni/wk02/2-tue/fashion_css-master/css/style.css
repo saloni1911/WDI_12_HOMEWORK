@@ -1,0 +1,122 @@
+body {
+	width: 800px;
+	margin: 0 auto;
+	margin-bottom: 60px;
+}
+
+
+h1 {
+	color: red;
+	font-weight: normal; 
+	font-size: 50px;
+}
+
+h2 {
+	font-weight: normal; 
+}
+
+h3 {
+	color: grey;
+}
+
+.date {
+	color: #d4cdcd;
+}
+
+#seconddate {
+	color: #d4cdcd;
+	margin-top: 40px;
+}
+
+.one {
+	color: grey;
+	font-size: 30px;
+	margin-left: 10px;
+	font-weight: normal;
+}
+
+.boxone {
+	width: 62.633333%;
+	float: left;
+	display: inline-block;
+	margin-right: 5.933333%;
+}
+
+
+.boxtwo {
+	width: 29.7%;
+	display: inline-block;
+	margin-top: 50px;
+	/*float: right;*/
+}
+
+nav > div {
+	display: inline-block;
+	background-color: black;
+	color: white;
+	width: 16.0416%;
+	padding: 15px 0 15px 0;
+	text-align: center;
+	font-weight: normal;
+}
+
+ul > li {
+	color: red;
+}
+
+header {
+	margin-bottom: 20px;
+}
+
+img{
+	max-width: 100%;
+
+}
+
+a {
+	text-decoration: none;
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+	
+}
+
+hr {
+	margin-top: 30px;
+}
+
+.right {
+	text-align: right;
+}
+
+footer {
+	clear: both;
+}
+footer > div {
+	display: inline-block;
+	color: #e66262;
+	margin-top: 30px;
+	border-left: 1px solid grey;
+	font: 20px;
+	padding: 3px;
+}
+
+.copyright {
+	color: grey;
+	border-color: white;
+}
+
+.home {
+	border-left: white;
+}
+
+.firstchar {
+  color: #d4cdcd;
+  float: left;
+  font-weight: normal;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+}

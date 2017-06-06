@@ -16,7 +16,7 @@ body {
 
 div {
 
-	display: inline-block;
+	/*display: inline-block;*/
 	/*float: left;*/
 	background-color: white;
 }
@@ -37,22 +37,29 @@ a {
 	padding: 20px 20px 0 20px;
 	border-collapse: separate;
     border-spacing: 10px 50px;
-	margin-left: 160px;
+	/*margin-left: 160px;*/
 	margin-top: 20px;
+	display: inline-block;
 }
 
 .boxtwo {
 	width: 200px;
-	float: right;
+	/*float: right;*/
 	/*margin-top: 20px;
 	margin-right: 40px;*/
 	padding: 45px 20px 0 20px;
 	margin-left: 20px;
 	margin-top: 20px;
+	display: inline-block;
  }
 
  .whole {
  	background-color: grey;
+ 	overflow: hidden;
+ 	width: 950px;
+	margin: 0 auto;
+	/*text-align: center;*/
+
  }
 
 
