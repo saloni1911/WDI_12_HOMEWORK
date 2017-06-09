@@ -1,0 +1,57 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+}
+
+img {
+   width: 120px;
+   height: 100px;
+   text-align: center;
+
+}
+
+.boxone {
+  width: 47.50%;
+  background-color: orange;
+  display: inline-block;
+  float: left;
+  border: 1px solid black;
+}
+
+.boxtwo {
+  width: 47.50%;
+  background-color: yellow;
+  display: inline-block;
+  border: 1px solid black;
+ }
+
+div {
+  text-align: center;
+  
+}
+
+input{
+  background-color: #82d682;
+  padding: 10px;
+
+}
+
+h1 {
+  font-family: Josefin Slab;
+  font-size: 40px;
+  text-align: center;
+}
+
+button {
+  background: grey;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+}
+
+

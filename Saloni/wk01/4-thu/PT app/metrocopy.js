@@ -107,10 +107,12 @@ var trainLines = [
 }
 ]
 
-var calculatestop = function(initial, interlineone) {
-	return
-}
-
+// var calculatestop = function(initial, interlineone) {
+// 	return
+// }
+// var arrayone = [];
+var objectorigin = {};
+var objectdestination = {};
 
 var journeyPlanner = function(origin, destination) {
 	
@@ -122,22 +124,23 @@ var journeyPlanner = function(origin, destination) {
 	   		 var initial = trainLines[i].stations.indexOf(origin);
 	   		 var interlineone = trainLines[i].stations;
 	   		 var rone = trainLines[i].stations.indexOf("Richmond");
-     
-	   		 // return initial;
-	   		 // return interlineone;
-	   		 // console.log(initial);
-	   		 // console.log(interlineone);
-	   		 // console.log(rone);
+     		var routeone = interlineone.slice(initial, rone);
+     		var joinedrouteone = (routeone.join("----->")) ;
+     		objectorigin.initial = trainLines[i].stations.indexOf(origin);
+     		objectorigin.interlineone = trainLines[i].stations;
+     		objectorigin.rone = trainLines[i].stations.indexOf("Richmond");
+     		objectorigin.joinedrouteone = (routeone.join("----->")) ;
+     		
 
 	   		}
 	   }
-	   var routeone = interlineone.slice(initial, rone);
-	   // console.log(routeone);
-	   // console.log(routeone.join("----->"));
-	   return (routeone.join("----->"));
+	   // var routeone = interlineone.slice(initial, rone);
+	   // // console.log(routeone);
+	   // // console.log(routeone.join("----->"));
+	   // return (routeone.join("----->")) ;
 	   
-	   ;
-	   console.log(array);
+	   return objectorigin;
+	   // console.log(array);
 	   }
 	  
 	    var stop = function(destination) {
@@ -146,14 +149,23 @@ var journeyPlanner = function(origin, destination) {
 				var final = trainLines[i].stations.indexOf(destination);
 	   		 var interlinetwo = trainLines[i].stations;
 	   		 var rtwo = trainLines[i].stations.indexOf("Richmond");
-	   		 console.log(final);
-	   		 console.log(interlinetwo);
-	   		 console.log(rtwo);
+	   		 var routetwo = interlinetwo.slice(rtwo, final+1);
+	   		 
+	   	var joinedroutetwo = routetwo.join("----->");
+	   		 objectdestination.final = trainLines[i].stations.indexOf(destination);
+	   		 objectdestination.interlinetwo = trainLines[i].stations;
+	   		 objectdestination.rtwo = trainLines[i].stations.indexOf("Richmond");
+	   		 objectdestination.joinedroutetwo = routetwo.join("----->");
+	   		 // console.log(final);
+	   		 // console.log(interlinetwo);
+	   		 // console.log(rtwo);
 	       }
 	      }
-	   	var routetwo = interlinetwo.slice(rtwo, final+1);
-	   	console.log(routetwo);
-	   	console.log(routetwo.join("----->"));
+	      return objectdestination;
+	   	// var routetwo = interlinetwo.slice(rtwo, final+1);
+	   	// var joinedroutetwo = routetwo.join("----->");
+	   	// console.log(routetwo);
+	   	// console.log(routetwo.join("----->"));
 	    }
 
  var x = start(origin);
@@ -164,11 +176,11 @@ var journeyPlanner = function(origin, destination) {
 
 	console.log("origin: " + origin + "\n" + "destination: " + destination);
 	console.log(x);
+	console.log(y);
 
 // console.log(routeone.join("----->")).concat(routetwo.join("----->"));
 }
 journeyPlanner("Flagstaff", "Windsor");
-
 
 
 
