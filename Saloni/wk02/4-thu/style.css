@@ -6,7 +6,7 @@ body {
 img {
    width: 120px;
    height: 100px;
-   text-align: center;
+   margin-left: 340px;
 
 }
 
@@ -18,12 +18,20 @@ img {
   border: 1px solid black;
 }
 
+#one {
+  background-color: red;
+}
+
 .boxtwo {
   width: 47.50%;
   background-color: yellow;
   display: inline-block;
   border: 1px solid black;
  }
+
+#two {
+  background-color: red;
+}
 
 div {
   text-align: center;

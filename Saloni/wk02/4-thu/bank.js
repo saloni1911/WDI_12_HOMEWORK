@@ -14,6 +14,24 @@ var checkInput = document.querySelector("#checkamount-input");
 var chkamt = checkInput.value;
 var newchk;
 
+var zero = document.querySelectorAll(".boxone");
+// if (savingbalance.textContent == 0) {
+// 		zero.style.backgroundColor = "red";
+// 		}	
+// savingbalance.textContent - update
+// checkingbalance.textContent - update
+
+// var zeroBalanceSav = savingbalance.textContent;
+
+// var zero = function(event) {
+// 	if (event.which === zeroBalanceSav === 0) {
+// 	console.log(event.target);
+// 	event.target.idName = "one";
+// 	}
+// }
+
+// zeroBalanceSav.addEventListener("onchange", zero);
+
 
 var depositsav = function() {
 	savamt = savInput.value;
@@ -47,6 +65,9 @@ var withdrawsav = function() {
 	} else if (total >= Number(savInput.value)) {
 		newsav = Number(savingbalance.textContent) - Number(savingbalance.textContent);
 		savingbalance.textContent = newsav;
+			// if (savingbalance.textContent == 0) {
+		zero.innerhtml.style.backgroundColor = "red";
+	
 		newchk = Number(checkingbalance.textContent) - balance;
 		checkingbalance.textContent = newchk;
 	} else {

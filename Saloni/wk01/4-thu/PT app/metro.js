@@ -3,10 +3,10 @@
 var origin;
 var destination;
 var initial;
-var interlineone;
-var rone;
-var objectorigin = {};
-var objectdestination = {};
+var interLineOne;
+var rOne;
+var objectOrigin = {};
+var objectDestination = {};
 
 var trainLines = [
 {
@@ -30,234 +30,99 @@ var journeyPlanner = function(origin, destination) {
 	   var begin = trainLines[i].stations.indexOf(origin);
 	   var last = trainLines[i].stations.indexOf(destination);
 	   var singleLine = trainLines[i].stations;
-	   console.log(singleLine);
-	   console.log("origin: " + origin + "\n" + "destination: " + destination);
+	  
+
 	 } else if ((trainLines[i].stations.includes(origin)) || (trainLines[i].stations.includes(destination))) {
 
    	var start = function(origin) {
 	   	for (i = 0; i < trainLines.length; i++) {
 	   		if (trainLines[i].stations.includes(origin)) {
 	   		 var initial = trainLines[i].stations.indexOf(origin);
-	   		 var interlineone = trainLines[i].stations;
-	   		 var rone = trainLines[i].stations.indexOf("Richmond");
-     		var routeone = interlineone.slice(initial, rone);
-     		var joinedrouteone = (routeone.join("----->")) ;
-     		objectorigin.initial = trainLines[i].stations.indexOf(origin);
-     		objectorigin.interlineone = trainLines[i].stations;
-     		objectorigin.rone = trainLines[i].stations.indexOf("Richmond");
-     		objectorigin.joinedrouteone = (routeone.join("----->")) ;
+	   		 var interLineOne = trainLines[i].stations;
+	   		 var rOne = trainLines[i].stations.indexOf("Richmond");
      		
-
+     		objectOrigin.initial = trainLines[i].stations.indexOf(origin);
+     		objectOrigin.interLineOne = trainLines[i].stations;
+     		objectOrigin.rOne = trainLines[i].stations.indexOf("Richmond");
+     		
 	   		}
 	   }
-
-	   return objectorigin;
+	   return objectOrigin;
     }
+
     var stop = function(destination) {
 	    	for (i = 0; i < trainLines.length; i++) {
 	   		 if (trainLines[i].stations.includes(destination)) {
 				var final = trainLines[i].stations.indexOf(destination);
-	   		 var interlinetwo = trainLines[i].stations;
-	   		 var rtwo = trainLines[i].stations.indexOf("Richmond");
-	   		 var routetwo = interlinetwo.slice(rtwo, final+1);
-	   		 
-	   	var joinedroutetwo = routetwo.join("----->");
-	   		 objectdestination.final = trainLines[i].stations.indexOf(destination);
-	   		 objectdestination.interlinetwo = trainLines[i].stations;
-	   		 objectdestination.rtwo = trainLines[i].stations.indexOf("Richmond");
-	   		 objectdestination.joinedroutetwo = routetwo.join("----->");
-
+	   		var interLineTwo = trainLines[i].stations;
+	   		var rTwo = trainLines[i].stations.indexOf("Richmond");
+	   		objectDestination.final = trainLines[i].stations.indexOf(destination);
+	   		objectDestination.interLineTwo = trainLines[i].stations;
+	   		objectDestination.rTwo = trainLines[i].stations.indexOf("Richmond");
  					}
 	      }
-	      return objectdestination;
+	      return objectDestination;
 			}
 
- var x = start(origin);
- var y = stop(destination);
+ 		var x = start(origin);
+ 		var y = stop(destination);
 
 		}
 	}
 
-	console.log("origin: " + origin + "\n" + "destination: " + destination);
-	console.log(x);
-	console.log(y);
+	console.log("Origin: " + origin + "\n" + "Destination: " + destination);
 
-  }
- 
- // 	if ((last+1) > begin) {
-	// var singleRoute = singleLine.slice(begin, last);
-	// console.log(singleRoute.join("----->"));
-	// console.log((last - begin) + " stops total");
- //  } else if (begin > (last+1)) {
- // 	var singleRoute = singleLine.slice(last, begin+1);
- // 	console.log(singleRoute.reverse().join("----->"));
- // 	console.log((begin - last) + " stops total");
- // }
+	if ((last+1) > begin) {
+		var singleRoute = singleLine.slice(begin, last+1);
+		console.log("Route is " + singleRoute.join("----->"));
+		console.log((last - begin) + " stops total");
 
-// };
+  } else if (begin > (last+1)) {
+ 		var singleRoute = singleLine.slice(last, begin+1);
+ 		console.log("Route is " + singleRoute.reverse().join("----->"));
+ 		console.log((begin - last) + " stops total");
+ 		
+ 	} else if (x.rOne > x.initial && y.rTwo < y.final) {
+		var routeOne = x.interLineOne.slice(x.initial, x.rOne);
+    var joinedrouteOne = (routeOne.join("----->"));
+	  var routeTwo = y.interLineTwo.slice(y.rTwo, y.final+1);
+	  var joinedrouteTwo = (routeTwo.join("----->"));
+	  console.log("Route is " + joinedrouteOne.concat("----->",joinedrouteTwo));
+	  console.log(routeOne.length + routeTwo.length-1 + " stops total");
 
-journeyPlanner("Windsor", "Richmond");
+	} else if (x.rOne > x.initial && y.rTwo > y.final) {
+		var routeOne = x.interLineOne.slice(x.initial, x.rOne);
+    var joinedrouteOne = (routeOne.join("----->"));
+	  var routeTwo = y.interLineTwo.slice(y.final, y.rTwo+1);
+	  var joinedrouteTwo = (routeTwo.reverse().join("----->"));
+	  console.log("Route is " + joinedrouteOne.concat("----->",joinedrouteTwo));
+	  console.log(routeOne.length + routeTwo.length-1 + " stops total");
 
 
+	} else if (x.rOne < x.initial && y.rTwo < y.final) {
+		var routeOne = x.interLineOne.slice(x.rOne+1, x.initial+1);
+    var joinedrouteOne = (routeOne.reverse().join("----->"));
+	  var routeTwo = y.interLineTwo.slice(y.rTwo, y.final+1);
+	  var joinedrouteTwo = (routeTwo.join("----->"));
+	  console.log("Route is " + joinedrouteOne.concat("----->",joinedrouteTwo));
+	  console.log(routeOne.length + routeTwo.length-1 + " stops total");
 
+	} else if (x.rOne < x.initial && y.rTwo > y.final) {
+		var routeOne = x.interLineOne.slice(x.rOne+1, x.initial+1);
+    var joinedrouteOne = (routeOne.reverse().join("----->"));
+    var routeTwo = y.interLineTwo.slice(y.final, y.rTwo+1);
+	  var joinedrouteTwo = (routeTwo.reverse().join("----->"));
+	  console.log("Route is " + joinedrouteOne.concat("----->",joinedrouteTwo));
+	  console.log(routeOne.length + routeTwo.length-1 + " stops total");
+ 	}
+};
 
-// var origin;
-// var destination;
-// var trainLines = [
-// {
-//  name: "Alamein",
-//  stations: ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"]
-// },
-// {
-//  name: "Glenwaverly",
-//  stations: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"]
-// },
-// {
-//  name: "Sandringham",
-//  stations: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
-// }
-// ]
-
-// var journeyPlanner = function(origin, destination) {
-
-// 	for (i = 0; i < trainLines.length; i++) {
-// 			if (trainLines[i].stations.includes(origin) && trainLines[i].stations.includes(destination)) {
-// 	   var begin = trainLines[i].stations.indexOf(origin);
-// 	   var last = trainLines[i].stations.indexOf(destination);
-// 	   var singleLine = trainLines[i].stations;
-// 	   console.log(singleLine);
-// 	   console.log("origin: " + origin + "\n" + "destination: " + destination);
-// 	 }
-//   }
- 
-//  	if ((last+1) > begin) {
-// 	var singleRoute = singleLine.slice(begin, last);
-// 	console.log(singleRoute.join("----->"));
-// 	console.log((last - begin) + " stops total");
-//   } else if (begin > (last+1)) {
-//  	var singleRoute = singleLine.slice(last, begin+1);
-//  	console.log(singleRoute.reverse().join("----->"));
-//  	console.log((begin - last) + " stops total");
-//  }
-// };
-
-// journeyPlanner("Windsor", "Richmond");
+journeyPlanner("Flinders Street", "Southern Cross");
 
 
 
 
 
-
-
-
-
-
-
-// var origin;
-// var destination;
-
-// var trainLines = {
-//  alamein: ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"],
-//  glenWaverly: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"],
-//  sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
-// }
-
-// var journeyPlanner = function(origin, destination) {
-// console.log("origin: " + origin + "\n" + "destination: " + destination);
-// 	var begin = trainLines.alamein.indexOf(origin);
-// 	var last = trainLines.alamein.indexOf(destination);
-	
-// 	if ((last+1) > begin) {
-// 	var stations = trainLines.alamein.slice(begin, last);
-// 	//console.log(begin + '\n' + last + '\n' + stations);
-// 	console.log(stations.join("----->"));
-// 	console.log((last - begin) + " stops total");
-//  } else if (begin > (last+1)) {
-//  	// var draft = stations.reverse();
-//  	var stations = trainLines.alamein.slice(last, begin+1);
-//  	//console.log(begin + '\n' + last + '\n' + stations);
-//  	console.log(stations.reverse().join("----->"));
-//  	console.log((begin - last) + " stops total");
-// }
-// };
-
-// journeyPlanner("Burnley", "Flinders Street");
-
-// var trainLines = [
-// {
-//  name: "alamein",
-//  stations: ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"]
-// },
-// {
-//  name: "glenWaverly",
-//  stations: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"]
-// },
-// {
-//  name: "sandringham",
-//  stations: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
-// }
-// ];
-
-// var origin;
-// var destination;
-
-// var journeyPlanner = function(origin, destination) {
-
-// for (var i = 0; i < trainLines[i].stations.length; i++) {
-// if (origin == trainLines[i].stations.includes(origin) && destination == trainLines[i].stations.includes(destination)) {
-// 	console.log("origin: " + origin + "\n" + "destination: " + destination);
-// // } else if (origin == tarinLines.stations[i].inculdes(origin) || destination == tarinLines.stations[i].inculdes(destination)) {
-// // 	console.log("origin: " + origin + "\n" + "destination: " + destination);
-// // } 
-// }
-// }
-// };
-// journeyPlanner("Flinders Street", "Burnley");
-
-	// console.log("origin" + ": '" + origin + "'\n" + "destination" + ": " + destination);
-	// if (origin === trainLines.alamein[0] && destination === trainLines.alamein[5]) {
-
- //  	var b1 = trainLines.alamein.indexOf(origin);
-	//   var l1 = trainLines.alamein.indexOf(destination);
-
- //  	for (var i = b1; i <= l1; i++) {
-	// 	var answer = trainLines.alamein[i];
-	// 	console.log(answer + " -----> ");
-	// 	}
-	// console.log((l1 - b1) + " stops total");
-
-
-	// } else if (origin == trainLines.glenWaverly && destination == trainLines.glenWaverly) {
- //  	var b2 = trainLines.glenWaverly.indexOf(origin);
-	//   var l2 = trainLines.glenWaverly.indexOf(destination);
- //  	console.log("origin" + ": " + origin + "\n" + "destination" + ": " + destination);
- //  	for (var i = b2; i <= l2; i++) {
-	// 	var answer = trainLines.glenwaverly[i];
-	// 	console.log(answer + " -----> ");
-	// 	}
-	// console.log((l2 - b2) + " stops total");
-	// } else if (origin == trainLines.sandringham && destination == trainLines.sandringham) {
-	// 	var b3 = trainLines.sandringham.indexOf(origin);
-	//   var l3 = trainLines.sandringham.indexOf(destination);
- //  	console.log("origin" + ": " + origin + "\n" + "destination" + ": " + destination);
- //  	for (var i = b3; i <= l3; i++) {
-	// 	var answer = trainLines.glenwaverly[i];
-	// 	console.log(answer + " -----> ");
-	// 	}
-	// console.log((l3 - b3) + " stops total");
-
-
-	
- // }
-	// for (var i = begin; i <= last; i++) {
-	// var answer = trainLines.alamein[i];
-	// console.log(answer + " -----> ");
-	// }
-	// console.log((last - begin) + " stops total");
-	// };
-	// }
-	// var origin = prompt("Select your origin point");
-	// var destination = prompt("Select your destination"); 
 
 
 

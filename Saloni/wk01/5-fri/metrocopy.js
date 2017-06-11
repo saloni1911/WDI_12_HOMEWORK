@@ -124,12 +124,12 @@ var journeyPlanner = function(origin, destination) {
 	   		 var initial = trainLines[i].stations.indexOf(origin);
 	   		 var interlineone = trainLines[i].stations;
 	   		 var rone = trainLines[i].stations.indexOf("Richmond");
-     		var routeone = interlineone.slice(initial, rone);
-     		var joinedrouteone = (routeone.join("----->")) ;
+     		// var routeone = interlineone.slice(initial, rone);
+     		// var joinedrouteone = (routeone.join("----->")) ;
      		objectorigin.initial = trainLines[i].stations.indexOf(origin);
      		objectorigin.interlineone = trainLines[i].stations;
      		objectorigin.rone = trainLines[i].stations.indexOf("Richmond");
-     		objectorigin.joinedrouteone = (routeone.join("----->")) ;
+     		// objectorigin.joinedrouteone = (routeone.join("----->")) ;
      		
 
 	   		}
@@ -149,13 +149,13 @@ var journeyPlanner = function(origin, destination) {
 				var final = trainLines[i].stations.indexOf(destination);
 	   		 var interlinetwo = trainLines[i].stations;
 	   		 var rtwo = trainLines[i].stations.indexOf("Richmond");
-	   		 var routetwo = interlinetwo.slice(rtwo, final+1);
+	   	// 	 var routetwo = interlinetwo.slice(rtwo, final+1);
 	   		 
-	   	var joinedroutetwo = routetwo.join("----->");
+	   	// var joinedroutetwo = routetwo.join("----->");
 	   		 objectdestination.final = trainLines[i].stations.indexOf(destination);
 	   		 objectdestination.interlinetwo = trainLines[i].stations;
 	   		 objectdestination.rtwo = trainLines[i].stations.indexOf("Richmond");
-	   		 objectdestination.joinedroutetwo = routetwo.join("----->");
+	   		 // objectdestination.joinedroutetwo = routetwo.join("----->");
 	   		 // console.log(final);
 	   		 // console.log(interlinetwo);
 	   		 // console.log(rtwo);
@@ -177,10 +177,78 @@ var journeyPlanner = function(origin, destination) {
 	console.log("origin: " + origin + "\n" + "destination: " + destination);
 	console.log(x);
 	console.log(y);
+	if ((last+1) > begin) {
+		var singleRoute = singleLine.slice(begin, last);
+		console.log(singleRoute.join("----->"));
+		console.log((last - begin) + " stops total");
 
-// console.log(routeone.join("----->")).concat(routetwo.join("----->"));
+  } else if (begin > (last+1)) {
+ 		var singleRoute = singleLine.slice(last, begin+1);
+ 		console.log(singleRoute.reverse().join("----->"));
+ 		console.log((begin - last) + " stops total");
+ 	}else if (x.rone > x.initial && y.rtwo < y.final) {
+		var routeone = x.interlineone.slice(x.initial, x.rone);
+		console.log(routeone);
+    var joinedrouteone = (routeone.join("----->"));
+	  var routetwo = y.interlinetwo.slice(y.rtwo, y.final+1);
+	  console.log(routetwo);
+	  var joinedroutetwo = (routetwo.join("----->"));
+	  console.log(joinedrouteone.concat("----->",joinedroutetwo));
+
+	} else if (x.rone > x.initial && y.rtwo > y.final) {
+		var routeone = x.interlineone.slice(x.initial, x.rone);
+		console.log(routeone);
+    var joinedrouteone = (routeone.join("----->"));
+	  var routetwo = y.interlinetwo.slice(y.final, y.rtwo+1);
+	  console.log(routetwo);
+	  var joinedroutetwo = (routetwo.reverse().join("----->"));
+	  console.log(joinedrouteone.concat("----->",joinedroutetwo));
+
+	} else if (x.rone < x.initial && y.rtwo < y.final) {
+		var routeone = x.interlineone.slice(x.rone+1, x.initial+1);
+		console.log(routeone);
+    var joinedrouteone = (routeone.reverse().join("----->"));
+	  var routetwo = y.interlinetwo.slice(y.rtwo, y.final+1);
+	  console.log(routetwo);
+	  var joinedroutetwo = (routetwo.join("----->"));
+	  console.log(joinedrouteone.concat("----->",joinedroutetwo));
+
+	} else if (x.rone < x.initial && y.rtwo > y.final) {
+		var routeone = x.interlineone.slice(x.rone+1, x.initial+1);
+		console.log(routeone);
+    var joinedrouteone = (routeone.reverse().join("----->"));
+    var routetwo = y.interlinetwo.slice(y.final, y.rtwo+1);
+	  console.log(routetwo);
+	  var joinedroutetwo = (routetwo.reverse().join("----->"));
+	  console.log(joinedrouteone.concat("----->",joinedroutetwo));
+	  console.log(routeone.length + routetwo.length + " stops total")
+	}
 }
-journeyPlanner("Flagstaff", "Windsor");
+journeyPlanner("Burnley", "Southern Cross");
+
+// single line route calculation
+// if ((last+1) > begin) {
+// 	var singleRoute = singleLine.slice(begin, last);
+// 	console.log(singleRoute.join("----->"));
+// 	console.log((last - begin) + " stops total");
+//   } else if (begin > (last+1)) {
+//  	var singleRoute = singleLine.slice(last, begin+1);
+//  	console.log(singleRoute.reverse().join("----->"));
+//  	console.log((begin - last) + " stops total");
+//  }
+
+
+// Interline route calculation
+
+// if (x.rone > x.initial && x.rtwo < x.final) {
+// 		var routeone = x.interlineone.slice(x.initial, x.rone);
+//     var joinedrouteone = (routeone.join("----->"));
+// 	  var routetwo = x.interlinetwo.slice(x.rtwo, (x.final)+1);
+// 	  var joinedroutetwo = (routetwo.join("----->"));
+// 	  console.log(joinedrouteone.concat(----->.concat(joinedroutetwo)));
+
+// }
+
 
 
 
