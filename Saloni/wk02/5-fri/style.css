@@ -1,40 +1,29 @@
 body {
-  width: 800px;
+  width: 600px;
   margin: 0 auto;
 }
 
-img {
-   width: 120px;
-   height: 100px;
-   margin-left: 340px;
-
-}
-
 .boxone {
-  width: 47.50%;
   background-color: orange;
-  display: inline-block;
-  float: left;
   border: 1px solid black;
 }
 
-.someBalance {
-  background-color: white
-}
-
-.zeroColor {
-  background-color: red;
-}
-
-.boxtwo {
-  width: 47.50%;
-  background-color: yellow;
+#abc {
+  float:left;
   display: inline-block;
-  border: 1px solid black;
- }
+  margin-left: 80px;
+}
 
-#two {
-  background-color: red;
+p {
+  
+}
+
+#turns {
+  display: inline-block;
+}
+
+.guesses {
+  size: 10px;
 }
 
 div {

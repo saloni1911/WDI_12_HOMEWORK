@@ -14,23 +14,27 @@ var checkInput = document.querySelector("#checkamount-input");
 var chkamt = checkInput.value;
 var newchk;
 
-var zero = document.querySelectorAll(".boxone");
-// if (savingbalance.textContent == 0) {
-// 		zero.style.backgroundColor = "red";
-// 		}	
-// savingbalance.textContent - update
-// checkingbalance.textContent - update
-
-// var zeroBalanceSav = savingbalance.textContent;
-
-// var zero = function(event) {
-// 	if (event.which === zeroBalanceSav === 0) {
-// 	console.log(event.target);
-// 	event.target.idName = "one";
+// var zeroBalance = document.querySelectorAll(".boxone");
+// var zeroBalanceColor = function() {
+// 	if (savingbalance.textContent == "0") {
+// 		zeroBalance.idName = "zeroColor";
+// 	} else {
+// 		zeroBalance.className = "boxone";
 // 	}
 // }
 
-// zeroBalanceSav.addEventListener("onchange", zero);
+var zeroBalanceColor = function() {
+	if (savingbalance.textContent == "0") {
+		savingbalance.className = "zeroColor";
+	} else {
+		savingbalance.className = "someBalance";
+	}
+	if (checkingbalance.textContent == "0") {
+		checkingbalance.className = "zeroColor";
+	} else {
+	checkingbalance.className = "someBalance";
+	}
+} 
 
 
 var depositsav = function() {
@@ -62,12 +66,11 @@ var withdrawsav = function() {
 		newsav = Number(savingbalance.textContent) - Number(savInput.value);
 		console.log(newsav);
 		savingbalance.textContent = newsav;
+		zeroBalanceColor();
 	} else if (total >= Number(savInput.value)) {
 		newsav = Number(savingbalance.textContent) - Number(savingbalance.textContent);
 		savingbalance.textContent = newsav;
-			// if (savingbalance.textContent == 0) {
-		zero.innerhtml.style.backgroundColor = "red";
-	
+		zeroBalanceColor();
 		newchk = Number(checkingbalance.textContent) - balance;
 		checkingbalance.textContent = newchk;
 	} else {
@@ -88,11 +91,13 @@ var withdrawchk = function() {
 		newchk = Number(checkingbalance.textContent) - Number(checkInput.value);
 		console.log(newchk);
 		checkingbalance.textContent = newchk;
+		zeroBalanceColor();
 	} else if (total >= Number(checkInput.value)) {
 		newchk = Number(checkingbalance.textContent) - Number(checkingbalance.textContent);
 		checkingbalance.textContent = newchk;
 		newsav = Number(savingbalance.textContent) - balance;
 		savingbalance.textContent = newsav;
+		zeroBalanceColor();
 	} else {
 		console.log("Ignore transaction, no sufficient funds")
 	}
