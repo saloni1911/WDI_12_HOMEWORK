@@ -25,22 +25,6 @@
 
 # Does your calculator allows addition of more then 2 numbers in one go? eg: 2 + 3 + 4
 
-# input1 = gets.chomp.to_i
-# input2 = gets.chomp.to_i
-
-puts 'Choose one of the following calculator functionality'
-all = '1. addition' , '2. subtraction' , '3. multiplication' , '4. division' ,
-'5. exponent' , '6. square_root', '7. quit'
-puts all
-print 'option: '
-option = gets.chomp
-
-
-print 'input1: '
-input1 = gets.chomp.to_i
-print 'input2: ' 
-input2 = gets.chomp.to_i
-
 
 def addition(input1, input2)
 	print "The sum of #{input1} and #{input2} is #{input1 + input2} \n"
@@ -66,30 +50,46 @@ def square_root(input1)
 	print "The square_root of #{input1} is #{input1 ** 0.5} \n"
 end
 
-# all.each do |element|
-# 	selection = element.split.last
-# 	if option == selection 
-# 		"#{selection}(input1, input2)"
-# 	end
-# end
 
-
-
-if option == 'addition'
-	addition(input1, input2)
-elsif option == 'subtraction'
-	subtraction(input1, input2)
-elsif option == 'multiplication'
-	multiplication(input1, input2)
-elsif option == 'division'
-	division(input1, input2)
-elsif option == 'exponent'
-	exponent(input1, input2)
-elsif option == 'square_root'
-	square_root(input1)
-elsif option == 'quit'
-	puts "thanks"
+def arguments(option, input1, input2)
+	if option == 'addition'
+		addition(input1, input2)
+	elsif option == 'subtraction'
+		subtraction(input1, input2)
+	elsif option == 'multiplication'
+		multiplication(input1, input2)
+	elsif option == 'division'
+		division(input1, input2)
+	elsif option == 'exponent'
+		exponent(input1, input2)
+	elsif option == 'square_root'
+		square_root(input1)
+	end
 end
+
+loop do
+	puts 'Choose one of the following calculator functionality'
+	puts '1. addition' , '2. subtraction' , '3. multiplication' , '4. division' ,
+	'5. exponent' , '6. square_root', '7. quit'
+
+	print 'option: '
+	option = gets.chomp
+
+	if option != 'quit' && option != 'square_root'
+		print 'input1: '
+		input1 = gets.chomp.to_i
+		print 'input2: ' 
+		input2 = gets.chomp.to_i
+		arguments(option, input1, input2)
+	elsif option == 'square_root'
+		print 'input1: '
+		input1 = gets.chomp.to_i
+		arguments(option, input1, input2)
+	end 
+
+break if option == 'quit'
+end
+
 
 
 
