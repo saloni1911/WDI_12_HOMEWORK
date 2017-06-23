@@ -22,8 +22,34 @@
 
 # [['bart','lisa'],['ned','homer','maggie']]
 
-print "Enter a list of items: "
-input = gets.chomp
+#require 'pry'
 
-arr = []
-arr.push(input)
+print "Enter a list of items: "
+list = gets.chomp.split(",")
+
+# print list
+
+print "Enter group size: "
+input2 = gets.chomp.to_i
+
+# print input2
+newarray = []
+
+loop do
+
+	if list.length >= (2 * input2)
+		newarray.push(list.slice!(0, input2))
+		# print list
+		# print newarray
+	end
+
+break if list.length <= (2 * input2)
+end
+
+newarray.push(list)
+
+print newarray
+
+#binding.pry
+
+
