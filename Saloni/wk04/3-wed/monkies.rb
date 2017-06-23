@@ -40,6 +40,11 @@ class Monkey
 
 end
 
+puts monkey1 = Monkey.new("Adam", "Spider Monkey")
+puts monkey1.eat("banana")
+puts monkey1.eat("apple")
+puts monkey1.introduce
+
 binding.pry
 
 
