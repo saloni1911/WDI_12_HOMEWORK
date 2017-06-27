@@ -1,0 +1,9 @@
+<h1>Here is the list of all movies</h1>
+
+<ul>
+<% @whole_list.each do |movie| %>
+<!-- <li><%= movie['Title'] %></li> -->
+<li><a href="/details/<%= movie['Title'] %>"><%= movie['Title'] %></li>
+
+<% end %>
+</ul>
