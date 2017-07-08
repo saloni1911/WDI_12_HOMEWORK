@@ -5,7 +5,6 @@ class Animal
 # attr_accessor :name, :age, :gender, :species, :toys
 
 	def initialize(name, age, gender, species)
-		# def initialize
 		@name = name
 		@age = age
 		@gender = gender
@@ -27,30 +26,6 @@ class Animal
   	def all
     	ObjectSpace.each_object(self).entries
   	end
-
- #  	def create_animal
-	# 	  ani = Animal.new
-
-	# 	  puts "What is the animal name?"
-	# 		name = gets.chomp
-			
-
-	# 		puts "What is the age of animal?"
-	# 		age = gets.chomp.to_i
-		 
-
-	# 		puts "What is the gender of animal?"
-	# 		gender = gets.chomp
-
-
-	# 		puts "What is the species of animal?"
-	# 		species = gets.chomp
-	# #
-	# 		puts "What are the toys of your animal?"
-	# 		toys = ani.ani_toys(gets.chomp)
-
-	#   	print Animal.all
-	# 	end
 
 	  def create_animal
 		  ani = Animal.new(@name, @age, @gender, @species)
@@ -138,7 +113,29 @@ end
 
 # binding.pry
 
+# def create_animal
+	# 	  ani = Animal.new
 
+	# 	  puts "What is the animal name?"
+	# 		name = gets.chomp
+			
+
+	# 		puts "What is the age of animal?"
+	# 		age = gets.chomp.to_i
+		 
+
+	# 		puts "What is the gender of animal?"
+	# 		gender = gets.chomp
+
+
+	# 		puts "What is the species of animal?"
+	# 		species = gets.chomp
+	# #
+	# 		puts "What are the toys of your animal?"
+	# 		toys = ani.ani_toys(gets.chomp)
+
+	#   	print Animal.all
+	# 	end
 
 
 
