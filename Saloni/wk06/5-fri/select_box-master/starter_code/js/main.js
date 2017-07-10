@@ -26,12 +26,13 @@ var changeImage = function(event) {
 		body.className = "austin";
 	} else if (option.selectedIndex == 5) {
 		body.className = "sydney";
-	}	
+	}	else if (option.selectedIndex == 0) {
+		body.className = '';
+	}
 };
 
-option.addEventListener("click", changeImage)
-// option.options[option.selectedIndex].value
-
+option.addEventListener("change", changeImage);
+// // option.options[option.selectedIndex].value
 
 
 

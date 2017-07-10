@@ -2,26 +2,13 @@ require 'pry'
 
 class Animal
 
-	# @@shelterani = [] 
-	# attr_accessor :ani_name, :ani_age, :ani_gender, :ani_species
-
-	# def self.all_instances
-	# 	@@shelterani
-	# end
-
-	# def self.length
-	# 	@@shelterani.length
-	# end
-	#
-	# @@counter = 0
-
-	def initialize(aname, age, gender, species)
+	def initialize(aname, age, gender, species, toys)
 		@name = aname
 		@age = age
 		@gender = gender
 		@species = species
 		@toys = []
-		@@counter += 1
+		# @@counter += 1
 		# @@shelterani << self
 	end
 
@@ -34,13 +21,13 @@ class Animal
 	end
 
 
-	class << Animal
-  	def all
-    	ObjectSpace.each_object(self).entries
-  	end
-	end
+# 	class << Animal
+#   	def all
+#     	ObjectSpace.each_object(self).entries
+#   	end
+# 	end
 
-end
+ end
 
 
 
@@ -70,20 +57,64 @@ end
 # 	@shelterclient = []
 # end
 
-puts 'menu of options:'
-puts '1. Create an animal', '2. Create an client', '3. Display all animals', '4. Display all clients',
-'5. Facilitate client adopts an animal', '6. Facilitate client puts an animal up for adoption'
+shelter = []
 
-print 'option: '
+loop do
+	puts 'menu of options:'
+	puts '1. Create an animal', '2. Create an client', '3. Display all animals', '4. Display all clients',
+	'5. Facilitate client adopts an animal', '6. Facilitate client puts an animal up for adoption', '7. Quit'
+
+	print 'option: '
 	option = gets.chomp
+		if option == "Create an animal"
 
-#puts shelter = []
-puts animal1 = Animal.new('a', 3, 'm', 'gdf')
-puts animal1.ani_toys("rrf")
-#puts shelter.push(animal1)
-puts animal2 = Animal.new('b', 4, 'f', 'rrtf')
-#puts shelter.push(animal2)
-#print shelter
+		# animal = Animal.new(@aname, @age, @gender, @species, @toys)
+
+		puts "What is the animal name?"
+		@aname = gets.chomp
+
+		puts "What is the age of animal?"
+		@age = gets.chomp.to_i
+
+		puts "What is the gender of animal?"
+		@gender = gets.chomp
+
+		puts "What is the species of animal?"
+		@species = gets.chomp
+
+			@toys = []
+			loop do
+				puts "What are the toys of animal?"
+				toy = gets.chomp
+			@toys.push(toy)
+				puts "Do you want to add more toys? Y or N"
+				opt = gets.chomp
+				if opt == "Y"
+				# puts "What are the toys of animal?"
+				toy = gets.chomp
+			@toys.push(toy)
+				end
+				break if opt == "N"
+			end
+			@toys = animal.ani_toy
+		animal = Animal.new(@aname, @age, @gender, @species, @toys)
+		shelter.push(animal)
+
+	end
+		break if option == 'Quit'
+	
+end
+
+print shelter
+
+# shelter = []
+# puts animal1 = Animal.new('a', 3, 'm', 'gdf')
+# puts animal1.ani_toys("rrf")
+# puts shelter.push(animal1)
+# puts animal2 = Animal.new('b', 4, 'f', 'rrtf')
+# puts animal2.ani_toys("you")
+# puts shelter.push(animal2)
+# print shelter
 
 # def get_name
 # 	@name
@@ -92,47 +123,51 @@ puts animal2 = Animal.new('b', 4, 'f', 'rrtf')
 # Animal.all_instances
 # Animal.length
 
-def create_animals(initialize)
-	print "variable name: "
-	variable_name = gets.chomp
-	puts "What is the animal name?"
-	aname = gets.chomp
+# def create_animals(initialize)
+# 	print "variable name: "
+# 	variable_name = gets.chomp
 
-	puts "What is the age of animal?"
-	age = gets.chomp.to_i
+	# puts "What is the animal name?"
+	# aname = gets.chomp
 
-	puts "What is the gender of animal?"
-	gender = gets.chomp
+	# puts "What is the age of animal?"
+	# age = gets.chomp.to_i
 
-	puts "What is the species of animal?"
-	species = gets.chomp
+	# puts "What is the gender of animal?"
+	# gender = gets.chomp
 
-	puts "What are the toys of animal?"
-	a
+	# puts "What is the species of animal?"
+	# species = gets.chomp
 
-end
+	# puts "What are the toys of animal?"
+	# a
 
-	Animal.new()
+# end
+
+# 	Animal.new()
 	
-end
+# end
 
-Animal.all
-shelter = Animal.all
+# Animal.all
+# shelter = Animal.all
 
-def get_species
-		@species
-end
+# def get_species
+# 		@species
+# end
 
-shelter[0].get_species
+# shelter[0].get_species
 
-if option == "Create an animal"
-	print "variable name: "
-	create_animals
+# if option == "Create an animal"
+# 	print "variable name: "
+# 	create_animals
 
 
 binding.pry
 
-
+print shelter
+shelter[0]
+shelter[1]
+shelter[0].get_species
 
 
 

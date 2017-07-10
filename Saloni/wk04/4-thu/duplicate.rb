@@ -3,7 +3,7 @@ require 'pry'
 class Animal
 	
 	@@shelterani = []
-	attr_accessor :aname, :age, :gender, :species 
+	attr_accessor :aname, :age, :gender, :species, :toys
 
 # def self.addAnimal
 # 		prompt "What is the animal name?"
@@ -15,7 +15,7 @@ class Animal
 # 		@@shelterani = Animal.new(aname, age, gender, species)
 # 	end
 
-	def self.all_instances
+	def self.all
 		@@shelterani
 	end
 
@@ -23,13 +23,14 @@ class Animal
 		@@shelterani.length
 	end
 
-	def initialize(aname, age, gender, species)
+	def initialize(aname, age, gender, species, toys)
 		@name = aname
 		@age = age
 		@gender = gender
 		@species = species
 		@toys = []
-		@@shelterani << self
+		@@shelterani.push self
+		# @@shelterani << self
 	end
 
 	def ani_toys(toy)
@@ -42,12 +43,31 @@ class Animal
 	
 end
 
-Animal.all_instances
-Animal.length
 
-binding.pry
+	print "What is the animal name?"
+	aname = gets.chomp
+	print "What is the age of animal?"
+	age = gets.chomp.to_i
+	print "What is the gender of animal?"
+	gender = gets.chomp
+	print "What is the species of animal?"
+	species = gets.chomp
+	print "What are the toys of animal?"
+	toys = gets.chomp
+
+animal = Animal.new(aname, age, gender, species, toys)
+# puts self.all_instances
+# puts self.length
 
 
+
+# print Animal.all
+# puts Animal.length
+
+# binding.pry
+
+print Animal.all
+puts Animal.length
 
 
 
