@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Giphy</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	
+	<div class="container">
+
+		<div class="left">
+			<h1>Giphy</h1>
+			<hr>
+			<form action="">
+				<input type="text">
+				<button>search</button>
+			</form>
+		</div>
+
+		<div class="print">
+
+		</div>
+
+	</div>
+
+	<script id="giphy-template" type="template">
+		<div class="giph">
+			<img src="{{image}}" style="width: 450px; height: 300px;">
+		</div>
+	</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+
+<script src="jquery.js"></script>
+<script src="giphy.js"></script>
+
+
+</body>
+</html>
