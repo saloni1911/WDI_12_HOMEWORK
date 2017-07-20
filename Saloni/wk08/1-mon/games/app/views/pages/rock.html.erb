@@ -1,0 +1,14 @@
+<h1>Rock Paper Scissors</h1>
+<p> Each Player has to select one option out of 3 - rock, paper, scissors</p> 
+<form action="/rock_answer" method="get">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"
+	
+	<label for="">Player 1</label>
+	<input type="" name="throw1"><br>
+
+	<label for="">Player 2</label>
+	<input type="" name="throw2">
+
+	<button>Enter</button>
+
+</form>
