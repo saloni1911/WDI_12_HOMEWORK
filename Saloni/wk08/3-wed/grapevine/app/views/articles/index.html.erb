@@ -1,0 +1,16 @@
+
+<a href='/articles/new'>New Article</a>
+
+
+<%#= link_to 'New Article', '/articles/new' %> 
+<%#= link_to 'New Article', new_article_path %> 
+
+<% @articles.each do |article| %>
+	<!-- <p><%= article.title %></p> -->
+	<p><%= link_to article.title, article %></p>
+
+	<!-- same as above -->
+	<!-- <p><a href="/articles/<%= article.id %>"> <%= article.title %></a></p> -->
+	
+<% end %>
+
