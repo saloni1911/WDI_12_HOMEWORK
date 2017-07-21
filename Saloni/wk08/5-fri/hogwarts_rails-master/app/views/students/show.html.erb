@@ -1,0 +1,6 @@
+<h1><%= @student.name %></h1>
+<!-- <h2><%= @student.house_id %></h2> -->
+<h2><%= @house.where(id: @student.house_id)[0].name %></h2>
+<div class="student">
+   <img src="<%= @student.img_url %>">
+</div>
