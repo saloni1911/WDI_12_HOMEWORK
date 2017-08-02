@@ -35,12 +35,12 @@ app.get('/add/compliment', function(req, res) {
 });
 
 app.post('/show', function(req, res) {
-		console.log(req.body.compliment);
+		// console.log(req.body.compliment);
 		var comp = req.body.compliment
-		var newArr = compliments.push(comp);
-		console.log(compliments);
-		console.log(newArr);
-  res.render('show', {compadd: newArr});
+		compliments.push(comp);
+		// console.log(compliments);
+		// console.log(newArr);
+  res.render('show', {newArr: compliments});
 }); 
 
 
