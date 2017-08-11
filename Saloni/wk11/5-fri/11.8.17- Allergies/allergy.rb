@@ -54,33 +54,36 @@ class Allergies
 
 
 	def allergy_to?(item)
-		@@items.each do |key, value|
-  		if key == item
-  			print "True"
-  		else 
-  			print "False"
+		if @@items.include? item
+  		print "True"
+  	else 
+  		print "False"
   		end
-		end
 
 	end
 
 
 	def list
-		puts @score
-		@@items.each do |key, value|
+		score = @score
+		total = 0	
 
-		if @score <= value
-			@@arr.push(key)
+		reversed_hash = Hash[@@items.to_a.reverse.to_h]
+
+		reversed_hash.each do |key, value|
+			newScore = score - total
+			if value <= newScore
+				@@arr.push(key)
+				total = total + value
+			end
 		end
-		@score - value
-	end
 
-	puts @@arr
-
+	print @@arr
 	end
 
 
-end
 
 binding.pry
+end
+
+
 
